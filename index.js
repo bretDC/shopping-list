@@ -1,15 +1,9 @@
 'use strict';
 
 // If "check" button is pressed, cross out the item
-function checkClicks() {
-    $('ul').on('click', 'button.shopping-item-toggle', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        $(event.target).closest('li').find('.shopping-item').addClass('shopping-item__checked');
-    });
-}
 
-// if "delete" button is pressed, delete entire item line
+
+// if "delete" button is pressed will remove item from list
 function deleteClicks() {
     $('ul').on('click', 'button.shopping-item-delete', event => {
         event.preventDefault();
@@ -18,7 +12,17 @@ function deleteClicks() {
     });
 }
 
-// get input value and insert that into the "append" template below and append it to the list.
+// If "check" button is pressed, cross out the item
+function checkClicks() {
+  $('ul').on('click', 'button.shopping-item-toggle', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      $(event.target).closest('li').find('.shopping-item').addClass('shopping-item__checked');
+  });
+}
+
+// get the input value and insert it into "append" template below and  "append" to the list.
+
 function addSubmission() {
     $('.js-shopping-list-form').on('submit', event => {
         event.preventDefault();
